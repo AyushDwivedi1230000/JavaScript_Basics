@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Palindrome Check</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #74ebd5, #ACB6E5);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 300px;
+    }
+
+    h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #cb6ab9;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #d974db;
+    }
+  </style>
+
+  <script>
+    // Function to reverse a number
+    function reverseNumber(num) {
+      let rev = 0;
+      while (num > 0) {
+        let digit = num % 10;
+        rev = rev * 10 + digit;
+        num = Math.floor(num / 10);
+      }
+      return rev;
+    }
+
+    // Function to check palindrome
+    function checkPalindrome() {
+      let num = parseInt(document.getElementById("number").value);
+      if (isNaN(num)) {
+        alert("Please enter a valid number");
+        return;
+      }
+      let reversed = reverseNumber(num);
+      if (num === reversed) {
+        alert(num + " is a Palindrome");
+      } else {
+        alert(num + " is NOT a Palindrome");
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h2>Palindrome Number Checker</h2>
+    <input type="number" id="number" placeholder="Enter a number">
+    <button onclick="checkPalindrome()">Check</button>
+  </div>
+</body>
+</html>

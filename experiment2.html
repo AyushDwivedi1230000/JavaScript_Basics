@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Shopping Website</title>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        header {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .product img {
+            width: 120px;
+            height: 120px;
+            margin-right: 20px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+        .product-details {
+            flex: 1;
+        }
+        .product-details h3 {
+            margin: 0;
+            font-size: 1.2em;
+            color: #4CAF50;
+        }
+        .product-price {
+            font-weight: bold;
+            color: #333;
+        }
+        label {
+            font-size: 0.9em;
+            color: #555;
+        }
+        input[type="number"] {
+            width: 60px;
+            padding: 5px;
+            margin-left: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .total {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+            color: #4CAF50;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Shopping Website</h1>
+    </header>
+    <div class="container">
+        <div class="product">
+            <img src="https://th.bing.com/th/id/OPAC.bmxCQDO7WgYueA474C474?w=220&h=210&c=17&o=5&cb=12&dpr=1.3&pid=21.1" alt="T-shirt">
+            <div class="product-details">
+                <h3>T-shirt</h3>
+                <p>Price: <span class="product-price" id="price1">500</span></p>
+                <label for="quantity1">Quantity:</label>
+                <input type="number" id="quantity1" value="0" min="0">
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://th.bing.com/th/id/OIP.XEuk5QB0os_3kgxyo15VKQHaF-?w=206&h=180&c=7&r=0&o=7&cb=12&dpr=1.3&pid=1.7&rm=3" alt="Sneakers">
+            <div class="product-details">
+                <h3>Sneakers</h3>
+                <p>Price: <span class="product-price" id="price2">300</span></p>
+                <label for="quantity2">Quantity:</label>
+                <input type="number" id="quantity2" value="0" min="0">
+            </div>
+        </div>
+        <div class="product">
+            <img src="https://th.bing.com/th/id/OPAC.1HaJ94m9PDXpaQ474C474?w=200&h=260&o=7&cb=12&dpr=1.3&pid=1.7&rm=3" alt="Cargo Pants">
+            <div class="product-details">
+                <h3>Cargo Pants</h3>
+                <p>Price: <span class="product-price" id="price3">200</span></p>
+                <label for="quantity3">Quantity:</label>
+                <input type="number" id="quantity3" value="0" min="0">
+            </div>
+        </div>
+        <div class="total">
+            Total Bill: <span id="totalBill">0</span>
+        </div>
+        <button onclick="calculateBill()">Calculate Bill</button>
+    </div>
+    <script>
+        function calculateBill() {
+            // Get quantities
+            let quantity1 = parseInt(document.getElementById('quantity1').value) || 0;
+            let quantity2 = parseInt(document.getElementById('quantity2').value) || 0;
+            let quantity3 = parseInt(document.getElementById('quantity3').value) || 0;
+
+            // Get prices
+            let product1Price = 500;
+            let product2Price = 300;
+            let product3Price = 200;
+
+            // Calculate total price
+            let totalBill = (quantity1 * product1Price) + (quantity2 * product2Price) + (quantity3 * product3Price);
+
+            // Apply discount
+            let totalItems = quantity1 + quantity2 + quantity3;
+            if (totalItems === 2) {
+                totalBill -= 200;
+            } else if (totalItems >= 3) {
+                totalBill -= 400;
+            }
+
+            // Display total bill
+            document.getElementById('totalBill').textContent = totalBill;
+        }
+    </script>
+</body>
+</html>

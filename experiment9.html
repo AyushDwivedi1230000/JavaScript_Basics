@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Schedule Planner</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .morning {
+            background-color: #ffffc0;
+        }
+        .afternoon {
+            background-color: #e6e6fa;
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align: center;">Seminar Schedule</h2>
+    <table>
+        <tr>
+            <th>Day</th>
+            <th colspan="2">Schedule</th>
+            <th>Topic</th>
+        </tr>
+        <tr onclick="showDetails('Monday morning session: Introduction to XML')">
+            <td rowspan="2">Monday</td>
+            <td class="morning">8:00 a.m.</td>
+            <td class="afternoon">5:00 p.m.</td>
+            <td>Introduction to XML</td>
+        </tr>
+        <tr onclick="showDetails('Monday afternoon session: Validity DTD and Relax NG')">
+            <td class="morning">8:00 a.m.</td>
+            <td class="morning">11:00 a.m.</td>
+            <td>Validity: DTD and Relax NG</td>
+        </tr>
+        <tr onclick="showDetails('Tuesday session: XPath and XSL Transformations')">
+            <td rowspan="2">Tuesday</td>
+            <td class="morning">11:00 a.m.</td>
+            <td class="afternoon">2:00 p.m.</td>
+            <td>XPath</td>
+        </tr>
+        <tr onclick="showDetails('Tuesday afternoon session: XSL Transformations')">
+            <td class="afternoon">2:00 p.m.</td>
+            <td class="afternoon">5:00 p.m.</td>
+            <td>XSL Transformations</td>
+        </tr>
+        <tr onclick="showDetails('Wednesday session: XSL Formatting Objects')">
+            <td>Wednesday</td>
+            <td class="morning">8:00 a.m.</td>
+            <td class="morning">12:00 p.m.</td>
+            <td>XSL Formatting Objects</td>
+        </tr>
+    </table>
+
+    <script>
+        function showDetails(message) {
+            alert("Session Details:\n" + message);
+        }
+    </script>
+</body>
+</html>

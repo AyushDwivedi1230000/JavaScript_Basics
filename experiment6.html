@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reverse String</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #cde3b3, #ebb8eb);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 350px;
+    }
+
+    h3 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #40f5ff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #e91e63;
+    }
+
+    #result1 {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+
+  <script>
+    function reverseString() {
+      let str = document.getElementById("inputString").value;
+      if (!str.trim()) {
+        document.getElementById("result1").innerHTML = "⚠ Please enter a string!";
+        return;
+      }
+      let reversed = str.split("").reverse().join("");
+      document.getElementById("result1").innerHTML = "Reversed String: " + reversed;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h3>Reverse a String</h3>
+    <input type="text" id="inputString" placeholder="Enter a string">
+    <button onclick="reverseString()">Reverse</button>
+    <p id="result1"></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Count Vowels</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #d2f175, #b5ebf1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+      text-align: center;
+      width: 400px;
+    }
+
+    h3 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-bottom: 15px;
+      resize: none;
+    }
+
+    button {
+      background-color: #ff7043;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #e64a19;
+    }
+
+    #result2 {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+      color: #333;
+    }
+  </style>
+
+  <script>
+    function countVowels() {
+      let paragraph = document.getElementById("inputPara").value;
+      if (!paragraph.trim()) {
+        document.getElementById("result2").innerHTML = "⚠ Please enter some text!";
+        return;
+      }
+      let vowels = paragraph.match(/[aeiouAEIOU]/g);
+      let count = vowels ? vowels.length : 0;
+      document.getElementById("result2").innerHTML = "Number of vowels: " + count;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h3>Count Vowels in a Paragraph</h3>
+    <textarea id="inputPara" rows="5" placeholder="Enter a paragraph"></textarea>
+    <button onclick="countVowels()">Count Vowels</button>
+    <p id="result2"></p>
+  </div>
+</body>
+</html>
